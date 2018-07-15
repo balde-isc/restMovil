@@ -1,5 +1,6 @@
 'use strict'
 
+//Constantes
 const twilio = require('../services/twilio');
 const rn = require('random-number');
 
@@ -16,7 +17,7 @@ function sendNumber(req, res) {
     if (params.phoneNumber) {
         twilio.sendSMS(code, params.phoneNumber)
         console.log('Codigo de validacion: ' + calculateCode());
-        res.status(200).send({ message: 'Se ha enviado correctamente el numero' });
+        res.status(200).send({ message: 'Tú Código de verificación es: ' + code });
     } else {
         res.status(400).send({ message: 'No se pudo hacer la solictud' });
     }
